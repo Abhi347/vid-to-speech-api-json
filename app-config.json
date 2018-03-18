@@ -1,0 +1,21 @@
+{
+    "buckets": {
+        "video": "your-cloud-storage-bucket-for-video",
+        "audio": "your-cloud-storage-bucket-for-audio",
+        "speechResponse": "your-cloud-storage-bucket-for-json"
+    },
+    "functions": {
+        "extractAudio": {
+            "trigger": {
+                "event": "storage",
+                "resource": "video"
+            }
+        },
+        "transcribeAudio": {
+            "trigger": {
+                "event": "storage",
+                "resource": "audio"
+            }
+        }
+    }
+}

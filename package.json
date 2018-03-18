@@ -1,0 +1,34 @@
+{
+  "name": "vide-to-speech-api-json",
+  "version": "0.0.1",
+  "description": "Generates google speech api response from any video using google cloud functions and google cloud storage",
+  "keywords": [
+    "google speech api",
+    "speech",
+    "cloud-functions",
+    "cloud functions",
+    "google cloud storage",
+    "cloud storage",
+    "cloud-storage",
+    "gcs",
+    "video",
+    "video to speech"
+  ],
+  "main": "app.js",
+  "scripts": {
+    "deploy": "node deploy.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhishek Jain <josh.abhi143@gmail.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Abhi347/vid-to-speech-api-json.git"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.13",
+    "@google-cloud/speech": "^1.1.0",
+    "@google-cloud/storage": "^1.6.0",
+    "fluent-ffmpeg": "^2.1.2"
+  }
+}
