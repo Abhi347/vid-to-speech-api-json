@@ -2,7 +2,8 @@
     "buckets": {
         "video": "your-cloud-storage-bucket-for-video",
         "audio": "your-cloud-storage-bucket-for-audio",
-        "speechResponse": "your-cloud-storage-bucket-for-json"
+        "speechResponse": "your-cloud-storage-bucket-for-json",
+        "srtResponse": "your-cloud-storage-bucket-for-srt"
     },
     "functions": {
         "extractAudio": {
@@ -15,6 +16,12 @@
             "trigger": {
                 "event": "storage",
                 "resource": "audio"
+            }
+        },
+        "generateSRT": {
+            "trigger": {
+                "event": "storage",
+                "resource": "speechResponse"
             }
         }
     }

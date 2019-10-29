@@ -5,6 +5,7 @@ const appConfig = require('../app-config');
 const videoBucket = storageClient.bucket(appConfig.buckets.video);
 const flacBucket = storageClient.bucket(appConfig.buckets.audio);
 const outputBucket = storageClient.bucket(appConfig.buckets.speechResponse);
+const srtBucket = storageClient.bucket(appConfig.buckets.srtResponse);
 
 function getFilePathFromFile(storageFile) {
     return `gs://${storageFile.bucket.name}/${storageFile.name}`;
@@ -56,6 +57,10 @@ function uploadFlac(filepath) {
 
 function uploadJsonOutput(filepath) {
     return uploadToBucket(outputBucket, filepath);
+}
+
+function uploadSRTOutput(filepath) {
+    return uploadToBucket(srtBucket, filepath);
 }
 
 module.exports = {
