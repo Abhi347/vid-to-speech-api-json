@@ -16,7 +16,8 @@ module.exports = (event) => {
                 "config": {
                     "enableWordTimeOffsets": true,
                     "languageCode": "en-US",
-                    "encoding": "FLAC"
+                    "encoding": "FLAC",
+                    "audioChannelCount": 1
                 },
                 "audio": {
                     "uri": audioFilePath
