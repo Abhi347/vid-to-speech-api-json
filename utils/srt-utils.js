@@ -2,7 +2,7 @@ function convertGSTTToSRT(string) {
     var obj = JSON.parse(string);
     var i = 1;
     var result = ''
-    for (const line of obj.response.results) {
+    for (const line of obj.results) {
         result += i++;
         result += '\n'
         var word = line.alternatives[0].words[0]
