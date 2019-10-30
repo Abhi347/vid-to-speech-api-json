@@ -70,5 +70,6 @@ module.exports = {
     getFilePathFromFile: getFilePathFromFile,
     downloadFile: downloadFile,
     uploadFlac: uploadFlac,
-    uploadJsonOutput: uploadJsonOutput
+    uploadJsonOutput: uploadJsonOutput,
+    uploadSRTOutput: uploadSRTOutput
 };
