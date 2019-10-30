@@ -14,9 +14,11 @@ module.exports = (event) => {
             speechFileNameWithoutExtension = path.parse(speechFilePath).name;
             return storageUtils.downloadFile(speechFile, event.name);
         }).then((fileinfo) => {
-            const speechData = '/tmp/' + fileinfo.source.name + '.json';
             console.log('FileInfo: ' + JSON.stringify(fileinfo))
             const speechData = '/tmp/' + fileinfo.source.name + '.json';
+      		const readFile = fs.readFileSync(speechData, 'utf8');
+      		console.log('ReadFile: ' + JSON.stringify(readFile))
+            const srtData = srtUtils.convertGSTTToSRT(readFile);
             const transcriptionFilePath = `/tmp/${speechFileNameWithoutExtension}.json`;
             console.log('result: ', srtData);
             //write transcriptions to local file
