@@ -15,7 +15,8 @@ module.exports = (event) => {
             return storageUtils.downloadFile(speechFile, event.name);
         }).then((fileinfo) => {
             const speechData = '/tmp/' + fileinfo.source.name + '.json';
-            const srtData = srtUtils.convertGSTTToSRT(speechData);
+            console.log('FileInfo: ' + JSON.stringify(fileinfo))
+            const speechData = '/tmp/' + fileinfo.source.name + '.json';
             const transcriptionFilePath = `/tmp/${speechFileNameWithoutExtension}.json`;
             console.log('result: ', srtData);
             //write transcriptions to local file
