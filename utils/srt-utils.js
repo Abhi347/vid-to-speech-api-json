@@ -18,16 +18,17 @@ function convertGSTTToSRT(string) {
 }
 
 function formatTime(time) {
-    return String(time.hours).padStart(2, '0')+ ':' + String(time.minutes).padStart(2, '0') + ':' + String(time.seconds).padStart(2, '0') + ',000';
+    return String(time.hours).padStart(2, '0')+ ':' + String(time.minutes).padStart(2, '0') + ':' + String(time.seconds).padStart(2, '0') + ',' +String(time.nanos).substr(0,3);
 }
 
-function convertSecondStringToRealtime(string) {
-    var seconds = string.substring(0, string.length - 1);
+function convertSecondStringToRealtime(time) {
+    var string = time.seconds
+    var seconds = +string;
     var hours = Math.floor(seconds / 3600);
     var minutes = Math.floor(seconds % 3600 / 60);
     seconds = Math.floor(seconds % 3600 % 60);
     return {
-        hours, minutes, seconds
+        hours, minutes, seconds, nanos: time.nanos
     }
 }
 
