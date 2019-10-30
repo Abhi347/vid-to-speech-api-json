@@ -30,3 +30,7 @@ function convertSecondStringToRealtime(string) {
         hours, minutes, seconds
     }
 }
+
+module.exports = {
+    convertGSTTToSRT: convertGSTTToSRT
+};
