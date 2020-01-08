@@ -2,7 +2,6 @@ const { spawn } = require('child_process');
 const appConfig = require('./app-config');
 const deployParams = [];
 const params = [
-    'beta',
     'functions',
     'deploy'
 ];
@@ -16,7 +15,9 @@ for (let cloudFunction in appConfig.functions) {
             '--trigger-resource',
             appConfig.buckets[resourceName],
             '--trigger-event',
-            'google.storage.object.finalize'
+            'google.storage.object.finalize',
+            '--runtime',
+            'nodejs10'
         ];
         deployParams.push(command);
     } else if (triggerEvent === 'http') {
