@@ -1,5 +1,6 @@
 import path from "path";
 import { Storage, Bucket, File } from "@google-cloud/storage";
+import { DownloadedFileInfo } from "../@types/types";
 
 const appConfig = require("../app-config");
 
@@ -15,7 +16,7 @@ export const getFilePathFromFile = (storageFile: File) => {
   return `gs://${storageFile.bucket.name}/${storageFile.name}`;
 };
 
-export const downloadFile = async (file: File, fileName: string) => {
+export const downloadFile = async (file: File, fileName: string):Promise<DownloadedFileInfo> => {
   console.log("Download started for " + fileName);
   let sourcePath = path.parse(fileName);
   let tempDestination = "/tmp/" + fileName;
