@@ -16,7 +16,8 @@ function downloadFile(file, fileName) {
     return new Promise((resolve, reject) => {
         let tempDestination = '/tmp/' + fileName;
         file.download({
-            destination: tempDestination
+            destination: tempDestination,
+            validation: false
         }).then((error) => {
             console.log('Download is done ' + error);
             if (error.length > 0) {
