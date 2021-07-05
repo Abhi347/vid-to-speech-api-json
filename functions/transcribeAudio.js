@@ -3,12 +3,12 @@ const path = require('path');
 const storageUtils = require('../utils/storage-utils');
 const speechUtils = require('../utils/speech-utils');
 module.exports = (event) => {
-    console.log(`event.data ${JSON.stringify(event.data)}`);
+    console.log(`event.data ${JSON.stringify(event)}`);
     let audioFileNameWithoutExtension;
     return Promise.resolve()
         .then(() => {
-            console.log(`event.data.name: ${JSON.stringify(event.data.name)}`);
-            const audioFile = storageUtils.flacBucket.file(event.data.name);
+            console.log(`event.data.name: ${JSON.stringify(event.name)}`);
+            const audioFile = storageUtils.flacBucket.file(event.name);
             const audioFilePath = storageUtils.getFilePathFromFile(audioFile);
             console.log(`audioFilePath: ${JSON.stringify(audioFilePath)}`);
             audioFileNameWithoutExtension = path.parse(audioFilePath).name;
@@ -16,7 +16,8 @@ module.exports = (event) => {
                 "config": {
                     "enableWordTimeOffsets": true,
                     "languageCode": "en-US",
-                    "encoding": "FLAC"
+                    "encoding": "FLAC",
+                    "audioChannelCount": 1
                 },
                 "audio": {
                     "uri": audioFilePath

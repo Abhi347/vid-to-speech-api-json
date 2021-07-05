@@ -1,11 +1,12 @@
 const storageUtils = require('../utils/storage-utils');
 const ffmpegUtils = require('../utils/ffmpeg-utils');
 module.exports = (event) => {
+    console.log(`event.data ${JSON.stringify(event)}`);
     return Promise.resolve()
         .then(() => {
-            const videoFile = storageUtils.videoBucket.file(event.data.name);
+            const videoFile = storageUtils.videoBucket.file(event.name);
             console.log('downloading video file 2...');
-            return storageUtils.downloadFile(videoFile, event.data.name);
+            return storageUtils.downloadFile(videoFile, event.name);
         }).then((fileinfo) => {
             //extract audio and transcode to FLAC
             return ffmpegUtils.extractAudio(fileinfo);
