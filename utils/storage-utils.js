@@ -1,6 +1,8 @@
 const path = require('path');
-const storageClient = require('@google-cloud/storage')();
+const { Storage } = require('@google-cloud/storage');
 const appConfig = require('../app-config');
+
+const storageClient = new Storage();
 
 const videoBucket = storageClient.bucket(appConfig.buckets.video);
 const flacBucket = storageClient.bucket(appConfig.buckets.audio);
