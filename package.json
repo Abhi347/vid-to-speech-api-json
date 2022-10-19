@@ -28,7 +28,7 @@
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.0.20",
     "@google-cloud/speech": "^1.1.0",
-    "@google-cloud/storage": "^1.6.0",
+    "@google-cloud/storage": "^6.5.3",
     "fluent-ffmpeg": "^2.1.2"
   }
 }
